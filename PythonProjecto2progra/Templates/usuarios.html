@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Usuarios</title>
+</head>
+<body>
+
+<h2>REVISIÓN DE USUARIOS</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Usuario</th>
+        <th>Contraseña</th>
+    </tr>
+
+    {% for u in users %}
+    <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ u.username }}</td>
+        <td>{{ u.password }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<br>
+<a href="/home">Volver</a>
+
+</body>
+</html>

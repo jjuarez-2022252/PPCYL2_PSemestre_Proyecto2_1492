@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carga XML</title>
+</head>
+<body>
+
+<h2>CARGA DE ARCHIVOS</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="file"><br><br>
+
+    <button type="submit">Cargar Archivo</button>
+    <button type="submit" name="procesar">Procesar Datos</button>
+</form>
+
+<h3>ENTRADA</h3>
+<textarea rows="10" cols="50">{{ contenido }}</textarea>
+
+<h3>SALIDA</h3>
+<textarea rows="10" cols="50">{{ salida }}</textarea>
+
+<br><br>
+<a href="/home">Volver</a>
+
+</body>
+</html>

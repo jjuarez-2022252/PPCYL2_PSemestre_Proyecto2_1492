@@ -1,0 +1,12 @@
+<usuarios>
+    <usuario>
+        <id>1</id>
+        <nombre>Juan</nombre>
+        <password>1234</password>
+    </usuario>
+    <usuario>
+        <id>2</id>
+        <nombre>Maria</nombre>
+        <password>abcd</password>
+    </usuario>
+</usuarios>
