@@ -1,0 +1,8 @@
+// Reporte de Matriz Dispersa
+digraph {
+	rankdir=LR
+	node [shape=box]
+	MATRIZ [label="Matriz Dispersa"]
+	VACIA [label="Matriz vacía"]
+	MATRIZ -> VACIA
+}

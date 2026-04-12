@@ -1,41 +1,49 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Panel Estudiante</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <h1>Panel del Estudiante</h1>
+    <div class="container">
+        <div class="header">
+            <h1>Panel del Estudiante</h1>
+            <p>Consulta de notas académicas</p>
+        </div>
 
-    <p><strong>Estado:</strong> {{ estado }}</p>
-    <p><strong>Mensaje:</strong> {{ mensaje }}</p>
+        <div class="card">
+            <p><strong>Estado:</strong> {{ estado }}</p>
+            <p><strong>Mensaje:</strong> {{ mensaje }}</p>
 
-    <hr>
+            {% if notas %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Actividad</th>
+                            <th>Carnet</th>
+                            <th>Nota</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for nota in notas %}
+                        <tr>
+                            <td>{{ nota.fila }}</td>
+                            <td>{{ nota.columna }}</td>
+                            <td>{{ nota.valor }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No hay notas para mostrar.</p>
+            {% endif %}
+        </div>
 
-    {% if notas %}
-        <table border="1" cellpadding="8">
-            <thead>
-                <tr>
-                    <th>Actividad</th>
-                    <th>Carnet</th>
-                    <th>Nota</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for nota in notas %}
-                <tr>
-                    <td>{{ nota.fila }}</td>
-                    <td>{{ nota.columna }}</td>
-                    <td>{{ nota.valor }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    {% else %}
-        <p>No hay notas para mostrar.</p>
-    {% endif %}
-
-    <br>
-    <a href="/logout/">Cerrar sesión</a>
+        <div class="actions">
+            <a class="btn" href="/logout/">Cerrar sesión</a>
+        </div>
+    </div>
 </body>
 </html>
