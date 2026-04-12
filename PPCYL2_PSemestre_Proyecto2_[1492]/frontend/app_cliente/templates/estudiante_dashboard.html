@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Estudiante</title>
+</head>
+<body>
+    <h1>Panel del Estudiante</h1>
+
+    <p><strong>Estado:</strong> {{ estado }}</p>
+    <p><strong>Mensaje:</strong> {{ mensaje }}</p>
+
+    <hr>
+
+    {% if notas %}
+        <table border="1" cellpadding="8">
+            <thead>
+                <tr>
+                    <th>Actividad</th>
+                    <th>Carnet</th>
+                    <th>Nota</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for nota in notas %}
+                <tr>
+                    <td>{{ nota.fila }}</td>
+                    <td>{{ nota.columna }}</td>
+                    <td>{{ nota.valor }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No hay notas para mostrar.</p>
+    {% endif %}
+
+    <br>
+    <a href="/logout/">Cerrar sesión</a>
+</body>
+</html>
