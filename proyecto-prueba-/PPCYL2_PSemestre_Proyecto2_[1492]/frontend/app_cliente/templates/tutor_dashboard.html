@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Tutor</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Panel del Tutor</h1>
+            <p>Gestión de horarios, notas y reportes académicos</p>
+        </div>
+
+        <div class="card">
+            <h2>Subir archivos XML</h2>
+
+            {% if mensaje_subida %}
+                <div class="message-success">
+                    {{ mensaje_subida }}
+                </div>
+            {% endif %}
+
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <p>
+                    <label for="archivo_horarios">XML de horarios</label>
+                    <input type="file" name="archivo_horarios" id="archivo_horarios" accept=".xml">
+                </p>
+
+                <p>
+                    <label for="archivo_notas">XML de notas</label>
+                    <input type="file" name="archivo_notas" id="archivo_notas" accept=".xml">
+                </p>
+
+                <button type="submit">Subir archivos</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Resumen de horarios</h2>
+            <p><strong>Estado:</strong> {{ estado_horarios }}</p>
+            <p><strong>Mensaje:</strong> {{ mensaje_horarios }}</p>
+            <p><strong>Total de horarios:</strong> {{ total_horarios }}</p>
+
+            {% if horarios %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Curso</th>
+                            <th>Tutor</th>
+                            <th>Cadena original</th>
+                            <th>Hora inicio</th>
+                            <th>Hora fin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for horario in horarios %}
+                        <tr>
+                            <td>{{ horario.curso }}</td>
+                            <td>{{ horario.tutor }}</td>
+                            <td>{{ horario.cadena_original }}</td>
+                            <td>{{ horario.hora_inicio }}</td>
+                            <td>{{ horario.hora_fin }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <div class="message-info">
+                    No hay horarios para mostrar.
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="card">
+            <h2>Notas cargadas</h2>
+            <p><strong>Estado:</strong> {{ estado_notas }}</p>
+            <p><strong>Mensaje:</strong> {{ mensaje_notas }}</p>
+
+            {% if notas %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Actividad</th>
+                            <th>Carnet</th>
+                            <th>Nota</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for nota in notas %}
+                        <tr>
+                            <td>{{ nota.fila }}</td>
+                            <td>{{ nota.columna }}</td>
+                            <td>{{ nota.valor }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <div class="message-info">
+                    No hay notas para mostrar.
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="card">
+            <h2>Reporte Graphviz de la matriz dispersa</h2>
+            <p><strong>Estado:</strong> {{ estado_reporte }}</p>
+            <p><strong>Mensaje:</strong> {{ mensaje_reporte }}</p>
+
+            {% if url_imagen %}
+                <div class="actions">
+                    <a class="btn" href="{{ url_imagen }}" target="_blank">Abrir imagen</a>
+                </div>
+                <img src="{{ url_imagen }}" alt="Reporte Graphviz">
+            {% else %}
+                <div class="message-info">
+                    No se pudo mostrar la imagen del reporte.
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="card">
+            <h2>Gráfica de promedios por actividad</h2>
+            {{ grafica_promedios|safe }}
+        </div>
+
+        <div class="actions">
+            <a class="btn" href="/tutor-reporte-pdf/" target="_blank">Descargar reporte PDF</a>
+            <a class="btn" href="/logout/">Cerrar sesión</a>
+        </div>
+    </div>
+</body>
+</html>

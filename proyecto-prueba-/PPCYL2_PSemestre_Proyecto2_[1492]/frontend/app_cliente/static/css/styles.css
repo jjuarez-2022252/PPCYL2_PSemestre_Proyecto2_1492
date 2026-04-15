@@ -1,0 +1,202 @@
+/* ===== ESTILO GENERAL ===== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #1f2937;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+h1, h2, h3 {
+    color: #1e3a8a;
+    margin-bottom: 10px;
+}
+
+p {
+    line-height: 1.5;
+}
+
+/* ===== BARRA SUPERIOR ===== */
+.header {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 20px 30px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    margin: 0;
+    color: white;
+}
+
+.header p {
+    margin: 5px 0 0 0;
+    color: #dbeafe;
+}
+
+/* ===== TARJETAS ===== */
+.card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== MENSAJES ===== */
+.message-success {
+    background-color: #dcfce7;
+    color: #166534;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.message-error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.message-info {
+    background-color: #dbeafe;
+    color: #1e40af;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* ===== FORMULARIOS ===== */
+form {
+    margin-top: 10px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"] {
+    width: 100%;
+    max-width: 450px;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+button,
+.btn {
+    display: inline-block;
+    background-color: #1e3a8a;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover,
+.btn:hover {
+    background-color: #1d4ed8;
+}
+
+/* ===== TABLAS ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+thead {
+    background-color: #1e3a8a;
+    color: white;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+/* ===== LISTAS ===== */
+ul {
+    padding-left: 20px;
+}
+
+/* ===== GRID DE RESUMEN ===== */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.summary-box {
+    background-color: #eff6ff;
+    border-left: 5px solid #2563eb;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.summary-box h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #1e3a8a;
+}
+
+/* ===== IMÁGENES Y GRÁFICAS ===== */
+img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* ===== ENLACES ===== */
+a {
+    color: #1d4ed8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===== LOGIN ===== */
+.login-box {
+    max-width: 450px;
+    margin: 60px auto;
+}
+
+/* ===== FOOTER ACCIONES ===== */
+.actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+

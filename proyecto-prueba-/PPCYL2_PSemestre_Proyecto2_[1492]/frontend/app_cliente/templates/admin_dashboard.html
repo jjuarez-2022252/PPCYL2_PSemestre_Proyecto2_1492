@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Administrador</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Panel del Administrador</h1>
+            <p>Gestión de configuración académica del sistema</p>
+        </div>
+
+        <div class="card">
+            <h2>Cargar XML de configuración</h2>
+
+            {% if mensaje_subida %}
+                <div class="message-success">{{ mensaje_subida }}</div>
+            {% endif %}
+
+            {% if ruta_guardada %}
+                <div class="message-info">
+                    <strong>Guardado en:</strong> {{ ruta_guardada }}
+                </div>
+            {% endif %}
+
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="file" name="archivo_xml" accept=".xml" required>
+                <button type="submit">Subir XML</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Resumen de configuración</h2>
+            <p><strong>Estado:</strong> {{ estado }}</p>
+            <p><strong>Mensaje:</strong> {{ mensaje }}</p>
+
+            <div class="summary-grid">
+                <div class="summary-box">
+                    <h3>Cursos</h3>
+                    <p>{{ resumen.total_cursos }}</p>
+                </div>
+                <div class="summary-box">
+                    <h3>Tutores</h3>
+                    <p>{{ resumen.total_tutores }}</p>
+                </div>
+                <div class="summary-box">
+                    <h3>Estudiantes</h3>
+                    <p>{{ resumen.total_estudiantes }}</p>
+                </div>
+                <div class="summary-box">
+                    <h3>Asign. Tutor</h3>
+                    <p>{{ resumen.total_asignaciones_tutor }}</p>
+                </div>
+                <div class="summary-box">
+                    <h3>Asign. Estudiante</h3>
+                    <p>{{ resumen.total_asignaciones_estudiante }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Resumen de validación del archivo de salida</h2>
+
+            {% if validacion_salida %}
+                <div class="summary-grid">
+                    <div class="summary-box">
+                        <h3>Tutores cargados</h3>
+                        <p>{{ validacion_salida.tutores_cargados }}</p>
+                    </div>
+                    <div class="summary-box">
+                        <h3>Estudiantes cargados</h3>
+                        <p>{{ validacion_salida.estudiantes_cargados }}</p>
+                    </div>
+                    <div class="summary-box">
+                        <h3>Asig. tutor correctas</h3>
+                        <p>{{ validacion_salida.asignaciones_tutor.correcto }}</p>
+                    </div>
+                    <div class="summary-box">
+                        <h3>Asig. tutor incorrectas</h3>
+                        <p>{{ validacion_salida.asignaciones_tutor.incorrecto }}</p>
+                    </div>
+                    <div class="summary-box">
+                        <h3>Asig. est. correctas</h3>
+                        <p>{{ validacion_salida.asignaciones_estudiante.correcto }}</p>
+                    </div>
+                    <div class="summary-box">
+                        <h3>Asig. est. incorrectas</h3>
+                        <p>{{ validacion_salida.asignaciones_estudiante.incorrecto }}</p>
+                    </div>
+                </div>
+
+                <p><strong>Archivo de salida generado en:</strong> {{ validacion_salida.ruta_salida }}</p>
+            {% else %}
+                <p>No hay datos de validación disponibles.</p>
+            {% endif %}
+        </div>
+
+        <div class="card">
+            <h2>Cursos</h2>
+            {% if cursos %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for curso in cursos %}
+                        <tr>
+                            <td>{{ curso.codigo }}</td>
+                            <td>{{ curso.nombre }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No hay cursos disponibles.</p>
+            {% endif %}
+        </div>
+
+        <div class="card">
+            <h2>Tutores</h2>
+            {% if tutores %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Registro</th>
+                            <th>Nombre</th>
+                            <th>Usuario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for tutor in tutores %}
+                        <tr>
+                            <td>{{ tutor.registro }}</td>
+                            <td>{{ tutor.nombre }}</td>
+                            <td>{{ tutor.usuario }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No hay tutores disponibles.</p>
+            {% endif %}
+        </div>
+
+        <div class="card">
+            <h2>Estudiantes</h2>
+            {% if estudiantes %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Carnet</th>
+                            <th>Nombre</th>
+                            <th>Usuario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for estudiante in estudiantes %}
+                        <tr>
+                            <td>{{ estudiante.carnet }}</td>
+                            <td>{{ estudiante.nombre }}</td>
+                            <td>{{ estudiante.usuario }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No hay estudiantes disponibles.</p>
+            {% endif %}
+        </div>
+
+        <div class="actions">
+            <a class="btn" href="/logout/">Cerrar sesión</a>
+        </div>
+    </div>
+</body>
+</html>
