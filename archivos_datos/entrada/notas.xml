@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notas>
+    <nota>
+        <actividad>Actividad5</actividad>
+        <carnet>1492-25</carnet>
+        <valor>75</valor>
+    </nota>
+    <nota>
+        <actividad>Actividad1</actividad>
+        <carnet>2023002</carnet>
+        <valor>90</valor>
+    </nota>
+    <nota>
+        <actividad>Actividad2</actividad>
+        <carnet>2023001</carnet>
+        <valor>10</valor>
+    </nota>
+    <nota>
+        <actividad>Actividad3</actividad>
+        <carnet>2023003</carnet>
+        <valor>60</valor>
+    </nota>
+    <nota>
+        <actividad>Actividad4</actividad>
+        <carnet>2023002</carnet>
+        <valor>100</valor>
+
+
+    </nota>
+</notas>

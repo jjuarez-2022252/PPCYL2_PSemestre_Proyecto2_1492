@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuracion>
+    <cursos>
+        <curso>
+            <codigo>IPC2</codigo>
+            <nombre>Introducción a la Programación 2</nombre>
+        </curso>
+        <curso>
+            <codigo>MAT101</codigo>
+            <nombre>Matemática Básica</nombre>
+        </curso>
+    </cursos>
+
+    <tutores>
+        <tutor>
+            <registro>1001</registro>
+            <nombre>Carlos López</nombre>
+            <usuario>tutor1</usuario>
+        </tutor>
+        <tutor>
+            <registro>1002</registro>
+            <nombre>María Pérez</nombre>
+            <usuario>tutor2</usuario>
+        </tutor>
+    </tutores>
+
+    <estudiantes>
+        <estudiante>
+            <carnet>2023001</carnet>
+            <nombre>Luis Gómez</nombre>
+            <usuario>estudiante1</usuario>
+        </estudiante>
+        <estudiante>
+            <carnet>2023002</carnet>
+            <nombre>Ana Ruiz</nombre>
+            <usuario>estudiante2</usuario>
+        </estudiante>
+                <estudiante>
+            <carnet>1492-25</carnet>
+            <nombre>Carlos</nombre>
+            <usuario>estudiante5</usuario>
+        </estudiante>
+    </estudiantes>
+
+    <asignaciones_tutor>
+        <asignacion>
+            <registro_tutor>1001</registro_tutor>
+            <codigo_curso>IPC2</codigo_curso>
+        </asignacion>
+        <asignacion>
+            <registro_tutor>1002</registro_tutor>
+            <codigo_curso>MAT101</codigo_curso>
+        </asignacion>
+    </asignaciones_tutor>
+
+    <asignaciones_estudiante>
+        <asignacion>
+            <carnet>2023001</carnet>
+            <codigo_curso>IPC2</codigo_curso>
+        </asignacion>
+        <asignacion>
+            <carnet>2023002</carnet>
+            <codigo_curso>MAT101</codigo_curso>
+        </asignacion>
+        <asignacion>
+            <carnet>1492-25</carnet>
+            <codigo_curso>progra2</codigo_curso>
+        </asignacion>
+
+    </asignaciones_estudiante>
+</configuracion>

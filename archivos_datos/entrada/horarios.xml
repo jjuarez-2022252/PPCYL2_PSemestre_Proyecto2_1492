@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<horarios>
+    <horario>
+        <curso>Algebra lineal</curso>
+        <tutor>Daniel</tutor>
+        <cadena>Mi horario de curso es HorarioI: 09:40 HorarioF: 10:30</cadena>
+    </horario>
+
+    <horario>
+        <curso>MAT101</curso>
+        <tutor>tutor2</tutor>
+        <cadena>Disponible para tutoría HorarioI: 14:00 HorarioF: 15:15</cadena>
+    </horario>
+
+    <horario>
+        <curso>IPC2</curso>
+        <tutor>tutor1</tutor>
+        <cadena>Sesión extra HorarioI: 16:00 HorarioF: 17:00</cadena>
+    </horario>
+</horarios>
